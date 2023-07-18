@@ -44,6 +44,7 @@ class _ShowModalBottomSheetContainerState extends State<ShowModalBottomSheetCont
         child: Padding(
           padding: const EdgeInsets.only(left: 24, top: 4),
           child: TextField(
+            keyboardType: TextInputType.emailAddress,
             decoration: InputDecoration(
               border: InputBorder.none,
               hintText: widget.hintText,

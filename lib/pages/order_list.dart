@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:fruit_shop/widgets/elevatedBottom_ordrelistPage.dart';
 import 'package:fruit_shop/widgets/order_list.dart';
 
-import '../widgets/showModalBottomSheet_widget.dart';
 
 class OrderList extends StatefulWidget {
   const OrderList({super.key});
@@ -71,71 +71,7 @@ class _OrderListState extends State<OrderList> {
                       ),
                     ],
                   ),
-                  ElevatedButton(
-                    onPressed: (){
-                      showModalBottomSheet(
-                        context: context, 
-                        builder: (BuildContext context){
-                          return Stack(
-                            clipBehavior: Clip.none,
-                            children: [
-                            Container(
-                              width: 375,
-                              height: 406,
-                              decoration: const BoxDecoration(
-                                borderRadius: BorderRadius.only(topRight: Radius.circular(24), topLeft: Radius.circular(24)),
-                                color: Color(0xFFFFFFFF),
-                              ),
-                              child: const Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  ShowModalBottomSheetText(text: 'Delivery address'),
-                                  SizedBox(height: 16),
-                                  ShowModalBottomSheetContainer(hintText: '10th avenue, Lekki, Lagos State'),
-                                  SizedBox(height: 24),
-                                  ShowModalBottomSheetText(text: 'Number we can call'),
-                                  SizedBox(height: 16),
-                                  ShowModalBottomSheetContainer(hintText: '09090605708'),
-                                  SizedBox(height: 40),
-                                  Padding(
-                                    padding: EdgeInsets.only(left: 24, right: 24),
-                                    child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        PayWidget(payText: 'Pay on delivery'),
-                                        PayWidget(payText: 'Pay with card'),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Positioned(
-                              left: 100,
-                              bottom: 400,
-                              child: Container(
-                                width: 48,
-                                height: 48,
-                                padding: const EdgeInsets.all(9.6),
-                                decoration: const BoxDecoration(
-                                  borderRadius: BorderRadius.all(Radius.circular(50)),
-                                  color: Colors.white,  
-                                ),
-                                child: const Text('x', style: TextStyle(fontFamily: 'Josefin Sans', fontSize: 28, fontWeight: FontWeight.w600, color: Colors.black),),
-                              ),
-                            ),
-                          ],
-                          );
-                        }
-                      );
-                    },
-                    style: const ButtonStyle(
-                      backgroundColor: MaterialStatePropertyAll(Color(0xFFFFA451)),
-                      shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10)))),
-                      minimumSize: MaterialStatePropertyAll(Size(199, 56)),
-                    ), 
-                    child: const Text('Checkout', style: TextStyle(fontFamily: 'Josefin Sans', fontSize: 16, fontWeight: FontWeight.w500, color: Colors.white),)
-                  ),
+                  const ElevatedBottomOrderList(),
                 ],
               ),
             ),
