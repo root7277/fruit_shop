@@ -1,8 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
+
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+
+  void initState(){
+    Future.delayed(const Duration(seconds: 2), (){
+      Navigator.pushNamed(context, 'welcome_screen');
+    });
+    super.initState();
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +28,7 @@ class SplashScreen extends StatelessWidget {
           children: [
             SvgPicture.asset('assets/splash_screen.svg'),
             ElevatedButton(
-              onPressed: (){Navigator.pushNamed(context, 'welcome_screen');}, 
+              onPressed: (){}, 
               style: const ButtonStyle(
                 minimumSize: MaterialStatePropertyAll(Size(184, 40)),
                 backgroundColor: MaterialStatePropertyAll(Color(0xFFFFA451)),

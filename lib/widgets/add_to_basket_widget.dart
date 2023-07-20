@@ -121,7 +121,7 @@ class _AddToBasketWidgetState extends State<AddToBasketWidget> {
                             orderImage.add(argument['image']);
                             orderName.add(argument['name']);
                             orderPrice.add(argument['price']);
-                            Navigator.pushNamed(context, 'order_list');
+                            Navigator.pushNamed(context, 'home_screen_one');
                           }, 
                           style: const ButtonStyle(
                             alignment: Alignment.center,

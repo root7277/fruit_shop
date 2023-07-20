@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:fruit_shop/widgets/elevatedBottom_ordrelistPage.dart';
+import 'package:fruit_shop/widgets/complite_details.dart';
 import 'package:fruit_shop/widgets/order_list.dart';
-
 
 class OrderList extends StatefulWidget {
   const OrderList({super.key});
@@ -52,26 +51,45 @@ class _OrderListState extends State<OrderList> {
           const SizedBox(height: 40),
           const OrderListWidget(),
           Container(
-            height: 60,
+            height: 80,
             color: Colors.white,
             child: Padding(
               padding: const EdgeInsets.only(left: 24, right: 24),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text('Total', style: TextStyle(fontFamily: 'Josefin Sans', fontSize: 16, fontWeight: FontWeight.w500, color: Colors.black),),
-                      Row(
-                        children: [
-                          SvgPicture.asset('assets/add_basket/icon_price_1.svg'),
-                          const Text('60.000', style: TextStyle(fontFamily: 'Josefin Sans', fontSize: 16, fontWeight: FontWeight.w500, color: Color(0xFF27214D)),)
-                        ],
-                      ),
-                    ],
+                  SizedBox(
+                    height: 56,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text('Total', style: TextStyle(fontFamily: 'Josefin Sans', fontSize: 16, fontWeight: FontWeight.w500, color: Colors.black),),
+                        Row(
+                          children: [
+                            SvgPicture.asset('assets/add_basket/icon_price_1.svg'),
+                            const Text('60.000', style: TextStyle(fontFamily: 'Josefin Sans', fontSize: 16, fontWeight: FontWeight.w500, color: Color(0xFF27214D)),)
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
-                  const ElevatedBottomOrderList(),
+                  ElevatedButton(
+                    onPressed: (){
+                      showModalBottomSheet(
+                        context: context, 
+                        isScrollControlled: true,
+                        builder: (BuildContext context){
+                          return const CompliteDetails();
+                        }
+                      );
+                    }, 
+                    style: const ButtonStyle(
+                      backgroundColor: MaterialStatePropertyAll(Color(0xFFFFA451)),
+                      shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10)))),
+                      minimumSize: MaterialStatePropertyAll(Size(199, 56)),
+                    ),
+                    child: const Text('Checkout', style: TextStyle(fontFamily: 'Josefin Sans', fontSize: 16, fontWeight: FontWeight.w500, color: Colors.white)),
+                  ),
                 ],
               ),
             ),

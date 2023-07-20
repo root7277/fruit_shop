@@ -19,9 +19,12 @@ class _HomeScreenOneState extends State<HomeScreenOne> {
         elevation: 0,
         backgroundColor: const Color(0xFFFFFFFF),
         leading: Image.asset('assets/icon_menu.png'),
-        actions: const [
+        actions: [
           InkWell(
-            child: Padding(
+            onTap: () {
+              Navigator.pushNamed(context, 'order_list');
+            },
+            child: const Padding(
               padding: EdgeInsets.only(right: 24),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
